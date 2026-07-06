@@ -1,0 +1,70 @@
+version: "3.9"
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: fraud_mysql
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
+
+  simulator:
+    build: .
+    container_name: fraud_simulator
+
+    command: python app/live_simulator.py
+
+    depends_on:
+      - mysql
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app
+
+  detector:
+    build: .
+    container_name: fraud_detector
+
+    command: python app/detector.py
+
+    depends_on:
+      - mysql
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app
+
+  dashboard:
+    build: .
+    container_name: fraud_dashboard
+
+    command: streamlit run app/dashboard.py --server.address=0.0.0.0 --server.port=8501
+
+    depends_on:
+      - mysql
+
+    env_file:
+      - .env
+
+    ports:
+     - "8501:8501"
+
+    volumes:
+      - .:/app
+
+volumes:
+  mysql_data:
