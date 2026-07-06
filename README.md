@@ -88,6 +88,85 @@ The system has been fully **Dockerized**, allowing the complete application—in
 | **Environment Management** | python-dotenv |
 | **Version Control** | Git & GitHub |
 
+
+# 🚀 Quick Start
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Mani4code/financial-fraud-detection-system.git
+cd financial-fraud-detection-system
+```
+
+## 2️⃣ Create the Environment File
+
+### Windows
+
+```powershell
+copy .env.example .env
+```
+
+### Linux / macOS
+
+```bash
+cp .env.example .env
+```
+
+## 3️⃣ Start the Application
+
+```bash
+docker compose up --build
+```
+
+Once all services are running, open:
+
+```
+http://localhost:8501
+```
+
+---
+
+# 💻 Development Mode (Separate Terminals)
+
+If you prefer monitoring each service separately during development, start each service in its own terminal.
+
+### Terminal 1 – MySQL
+
+```bash
+docker compose up mysql
+```
+
+### Terminal 2 – Live Simulator
+
+```bash
+docker compose up simulator
+```
+
+### Terminal 3 – Fraud Detector
+
+```bash
+docker compose up detector
+```
+
+### Terminal 4 – Streamlit Dashboard
+
+```bash
+docker compose up dashboard
+```
+
+Then open:
+
+```
+http://localhost:8501
+```
+
+---
+
+# 🛑 Stop the Application
+
+```bash
+docker compose down
+```
 ---
 
 # 📂 Project Structure
