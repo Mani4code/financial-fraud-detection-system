@@ -25,8 +25,9 @@ The system has been fully **Dockerized**, allowing the complete application—in
 ---
 
 ## 📸 Dashboard Preview
-
-> *(We'll add your dashboard screenshot in the next step.)*
+<p align="center">
+  <img src="assets/screenshots/dashboard.png" alt="Main Dashboard" width="100%">
+</p>
 
 ----
 
@@ -215,6 +216,90 @@ financial-fraud-detection-system/
 ├── LICENSE
 └── README.md
 ```
+---
+
+# 🤖 Machine Learning Pipeline
+
+The fraud detection model follows a complete machine learning pipeline:
+
+```text
+Historical Transactions
+        │
+        ▼
+Feature Engineering
+        │
+        ▼
+Training Dataset
+        │
+        ▼
+XGBoost Model Training
+        │
+        ▼
+fraud_detection_model.pkl
+        │
+══════════════════════════════
+      Real-Time Prediction
+══════════════════════════════
+        │
+        ▼
+Live Transaction
+        │
+        ▼
+Feature Engineering
+        │
+        ▼
+XGBoost Prediction
+        │
+        ▼
+Fraud Probability
+        │
+        ▼
+Dashboard & Database Update
+```
+
+### Features Used
+
+- Transaction Amount
+- Customer Average Amount
+- Customer Maximum Amount
+- Amount Deviation
+- Amount Growth Ratio
+- Amount vs Maximum
+- Device Change Detection
+- City Change Detection
+- Payment Method Change Detection
+- Transaction Count (Last 24 Hours)
+
+The trained model predicts the probability of fraud for every incoming transaction and updates the database in real time.
+---
+
+# 📊 Model Performance
+
+The fraud detection model was trained using **XGBoost** on engineered customer transaction features.
+
+| Metric | Score |
+|---------|-------|
+| Model | XGBoost Classifier |
+| Accuracy | 98%+ |
+| Precision | 89.30% |
+| Recall | 79.25% |
+| F1-Score | 83.97% |
+
+### Feature Importance
+
+The most influential features used by the model include:
+
+- Amount Growth Ratio
+- Customer Average Amount
+- Amount vs Maximum
+- Device Change Detection
+- City Change Detection
+- Payment Method Change Detection
+- Previous Transaction Amount
+- Customer Maximum Amount
+- Transaction Count (Last 24 Hours)
+
+The trained model predicts a fraud probability for every incoming live transaction. Transactions exceeding the configured threshold are flagged as fraudulent and displayed instantly on the monitoring dashboard.
 
 ## 📑 Table of Contents
 
