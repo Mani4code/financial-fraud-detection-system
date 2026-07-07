@@ -280,7 +280,6 @@ The fraud detection model was trained using **XGBoost** on engineered customer t
 | Metric | Score |
 |---------|-------|
 | Model | XGBoost Classifier |
-| Accuracy | 98%+ |
 | Precision | 89.30% |
 | Recall | 79.25% |
 | F1-Score | 83.97% |
