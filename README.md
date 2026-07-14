@@ -18,9 +18,7 @@
 
 ## 📌 Project Overview
 
-This project is a **Real-Time Financial Fraud Detection System** that simulates banking transactions, detects fraudulent activities using a trained **XGBoost Machine Learning model**, and visualizes live transaction monitoring through an interactive **Streamlit dashboard**.
-
-The system has been fully **Dockerized**, allowing the complete application—including **MySQL**, the **Live Transaction Simulator**, the **Fraud Detection Engine**, and the **Dashboard**—to be launched using a single Docker Compose command.
+Unlike traditional ML projects built on static Kaggle datasets, this project recreates a production-style fraud detection pipeline by simulating live banking transactions, dynamically generating behavioral features from historical customer data, performing real-time fraud prediction using XGBoost, and visualizing live fraud alerts through an interactive Streamlit dashboard. The entire system is fully Dockerized for one-command deployment.
 
 ---
 
